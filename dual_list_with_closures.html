@@ -1,0 +1,162 @@
+</doctype html>
+
+<head>
+
+<style>
+
+select {
+	width: 300px;
+}
+
+#available-emp{
+	width: 300px;
+	float:left;
+	margin: 10px;
+}
+
+/*#action-btn{
+	width: 300px;
+	float:left;
+
+}*/
+
+#selected-emp{
+	width: 300px;
+	float:left;
+}
+
+#available-emp, #action-btn, #selected-emp{
+	margin: 20px;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div id="available-emp">
+
+	<p>Available Employees</p>
+
+	<select name="employees" multiple id="avl">
+	  <option value="alfred">Alfred James</option>
+	  <option value="jones">Jones Johnson</option>
+	  <option value="mike">Mike Hussey</option>
+	  <option value="neil">Neil Smith</option>
+	  <option value="james">James Soney</option>
+	  <option value="quinton">Quinton Jason</option>
+	  <option value="shawn">Shawn Michales</option>
+	  <option value="neil">Neil Smith</option>
+	</select>
+
+	<div id="action-btn">
+	<button type="button" id="selectAll">Multiple Add</button><br>
+	<button type="button" id="removeAll">Multiple Remove</button><br>
+	<button type="button" id="addSibgle">Add Single</button><br>
+	<button type="button" id="removeSibgle">Remove Single</button>
+	</div>
+
+</div>
+
+
+<!-- I want this div to appear dynamically when a user clicks any action button-->
+<div id="selected-emp">
+
+	<p>Selected Employees</p>
+
+</div>
+
+
+<script>
+//http://www.dyn-web.com/tutorials/forms/select/multi-selected.php
+//http://stackoverflow.com/questions/7340644/dynamically-add-input-type-select-with-options-in-javascript
+
+selectAll.onclick = function() {
+
+	//var arr = [];
+		var items;
+		var n = document.getElementById("avl");
+
+		for(var i=0; i < n.options.length; i++){
+			items = n[i];
+			 // check if selected
+	        if (items.selected ) {
+	           return multiple; // giving error not defined
+		}
+		
+	//return arr;
+	}
+
+}
+
+// this functuon will allow to remove multiple items from the list
+removeAll.onclick = function() {
+
+		var remove;
+		var selID = document.getElementById('selected-emp');
+		var x = document.getElementById("sel");
+		for(var i=0; i < x.options.length; i++){
+			remove = x[i];
+				 // check if selected
+		      if(remove.selected) {
+		          remove.remove();
+			}
+	}
+
+	selID.innerHTML = "";
+
+}
+
+
+// this function will only add single selected item to the selected-emp list
+
+addSingle.onclick = function() {
+
+		var single;
+		var a = document.getElementById("avl");
+		for(var i=0; i < a.options.length; i++){
+			single = a[i];
+				 // check if selected
+		      if(single.selected.length > 1) {
+		          alert("You can only select one item from the list");
+			}else {
+				return multiple;
+			}
+	}
+}
+
+// this function will only remove single selected item to the selected-emp list
+
+removeSingle.onclick = function() {
+
+
+}
+
+// this functuon will get activated when you click any action button to generate dynamic content. except fro remove items
+
+function multiple(){
+		 var items;
+		 var n = document.getElementById("avl");
+		 //var newDiv = document.createElement('div');
+		 var selID = document.getElementById('selected-emp');
+         var contentDisplay = "";
+         contentDisplay = "<select>";
+
+		for(var i=0; i < n.options.length; i++){
+			 items = n[i];
+	         contentDisplay += "<option value='" + items[i] + "'>" + items[i] + "</option>";
+	     }
+         contentDisplay+="</select>";
+		 selID.innerHTML = contentDisplay;
+		// document.getElementById(newID).appendChild(newDiv);
+	}
+
+}
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+</doctype html>
+
+<head>
+
+</head>
+
+<body>
+
+
+
+
+<script>
+
+// http://stackoverflow.com/questions/111102/how-do-javascript-closures-work
+
+function multiply(n) {
+
+	function innerFunc(m){
+		m = 4;
+		alert(n *m);
+	}
+	
+	return innerFunc;
+}	
+
+var x = multiply(5);
+x();
+
+
+</script>
+</body>
+
+</html>
