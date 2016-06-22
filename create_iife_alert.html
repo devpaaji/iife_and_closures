@@ -1,0 +1,34 @@
+</doctype html>
+
+<head>
+
+</head>
+
+<body>
+
+<button id="btn" type="button">Click Me</button>
+
+
+<script>
+
+//The reason the alert message appears is because it's an IIFE. So, when you attach an onclick event handler as an IIFE, the handler executes immediately and does not wait for the button click event to be fired.
+
+//The reason the event handler is not getting executed on button click is you have assigned an IIFE to the onclick event and not a function. So, effectively the result of the IIFE is what gets assiged to onclick which in this case is nothing.
+// btn.onclick = (function(){
+
+// alert("Hello World");
+
+// })();
+
+(function(){
+
+alert("Hello World");
+
+})();
+
+
+</script>
+
+</body>
+
+</html>
