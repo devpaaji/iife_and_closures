@@ -1,0 +1,37 @@
+
+</doctype html>
+
+<head>
+
+</head>
+
+<body>
+
+
+<p id-="demo"></p>
+
+
+<script>
+
+function foo() {
+
+//foo is holding bar in itself. bar cannot be touched from the outer scope unless it is defined in the outer scope.
+    function bar() {
+    	var n = 2;
+        return n;
+    }
+    return bar();
+}
+
+
+// if you directly invoke bar(); it will not work
+var n = foo();
+n();
+
+</script>
+</body>
+
+</html>
+
+
+
